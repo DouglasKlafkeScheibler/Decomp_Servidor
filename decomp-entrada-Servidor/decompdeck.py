@@ -244,7 +244,7 @@ def readFile(path):
         retval = f.read()
     return retval
 
-def upload_data_deckIn():
+def upload_data_deckIn(pathdeck = '../decomp-entrada-Servidor/tempDecomp'):
     #Procura pelos arquivos por essa lógica e faz a mesma operação da funcao "upload_data_deckout" mas para arquivos de entrada
     for root, directories, files in os.walk(pathdeck, topdown=False):
             for name in directories:
@@ -353,7 +353,10 @@ def main():
     upload_data_deckOut()
 
     #Procura pelos arquivos por essa lógica e faz a mesma operação da funcao "upload_data_deckout" mas para arquivos de entrada
-    upload_data_deckIn()
+    upload_data_deckIn(pathdeck)
 
     #Apaga a pasta tempDecomp
     shutil.rmtree('./tempDecomp')
+
+if __name__ == "__main__":
+    main()
