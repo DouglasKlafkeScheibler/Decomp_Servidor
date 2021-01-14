@@ -55,8 +55,8 @@ from download_decks_decomp import download_decomp
 import shutil 
 
 
-#Esse Script tem como função chamar todas as funções de coleta que são relacionadas a Decomp de entrada 
-#e enviar as informações para o banco de dados "CENTRAL".
+# Esse Script tem como função chamar todas as funções de coleta que são relacionadas a Decomp de entrada 
+# e enviar as informações para o banco de dados "CENTRAL".
 
 
 # [PARSING]
@@ -244,22 +244,7 @@ def readFile(path):
         retval = f.read()
     return retval
 
-#Main da aplicação, onde irá rodar as funções
-if __name__ == "__main__":
-
-    #Baixa os arquivos de decomp do mes atual do sistema e salva na pasta temporaria tempDecomp
-    download_decomp()
-
-    blocks = setupBlocks()
-
-    args = parseArgs(blocks)
- 
-    #Indica onde está os arquivos baixados do mes
-    pathdeck = '../decomp-entrada-Servidor/tempDecomp'
-
-    #Faz a operação de upload dos dados de saida do decomp do mes atual
-    upload_data_deckOut()
-
+def upload_data_deckIn():
     #Procura pelos arquivos por essa lógica e faz a mesma operação da funcao "upload_data_deckout" mas para arquivos de entrada
     for root, directories, files in os.walk(pathdeck, topdown=False):
             for name in directories:
@@ -350,5 +335,25 @@ if __name__ == "__main__":
                             # print(paramToWrite)
                             # sendToDb(paramColumns, [paramToWrite], paramTable)
     
+
+
+#Main da aplicação, onde irá rodar as funções
+def main():
+    #Baixa os arquivos de decomp do mes atual do sistema e salva na pasta temporaria tempDecomp
+    download_decomp()
+
+    blocks = setupBlocks()
+
+    args = parseArgs(blocks)
+ 
+    #Indica onde está os arquivos baixados do mes
+    pathdeck = '../decomp-entrada-Servidor/tempDecomp'
+
+    #Faz a operação de upload dos dados de saida do decomp do mes atual
+    upload_data_deckOut()
+
+    #Procura pelos arquivos por essa lógica e faz a mesma operação da funcao "upload_data_deckout" mas para arquivos de entrada
+    upload_data_deckIn()
+
     #Apaga a pasta tempDecomp
     shutil.rmtree('./tempDecomp')
