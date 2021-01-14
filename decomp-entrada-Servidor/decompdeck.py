@@ -245,6 +245,10 @@ def readFile(path):
     return retval
 
 def upload_data_deckIn(pathdeck = '../decomp-entrada-Servidor/tempDecomp'):
+    blocks = setupBlocks()
+
+    args = parseArgs(blocks)
+
     #Procura pelos arquivos por essa lógica e faz a mesma operação da funcao "upload_data_deckout" mas para arquivos de entrada
     for root, directories, files in os.walk(pathdeck, topdown=False):
             for name in directories:
@@ -341,10 +345,6 @@ def upload_data_deckIn(pathdeck = '../decomp-entrada-Servidor/tempDecomp'):
 def main():
     #Baixa os arquivos de decomp do mes atual do sistema e salva na pasta temporaria tempDecomp
     download_decomp()
-
-    blocks = setupBlocks()
-
-    args = parseArgs(blocks)
  
     #Indica onde está os arquivos baixados do mes
     pathdeck = '../decomp-entrada-Servidor/tempDecomp'
