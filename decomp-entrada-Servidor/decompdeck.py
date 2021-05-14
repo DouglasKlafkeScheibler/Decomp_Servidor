@@ -71,7 +71,7 @@ def setupBlocks():
         1: Block('-', parseTitle, True, True), # DGER
         2: Block('-subsystem', parseSubsystem, False, True),
         3: Block('-reservoir', parseReservoirVolume, False, True),
-        4: None,#Block('-thermal', parseThermalData, False, True),
+        4: Block('-thermal', parseThermalData, False, True),
         5: Block('-pumpStation', parsePumpingStation, False, True),
         6: Block('-load', parseSystemLoad, False, True),
         7: Block('-deficit', parseDeficit, False, True),
@@ -344,7 +344,7 @@ def upload_data_deckIn(pathdeck = '../decomp-entrada-Servidor/tempDecomp'):
 #Main da aplicação, onde irá rodar as funções
 def main():
     #Baixa os arquivos de decomp do mes atual do sistema e salva na pasta temporaria tempDecomp
-    download_decomp()
+    # download_decomp()
  
     #Indica onde está os arquivos baixados do mes
     pathdeck = '../decomp-entrada-Servidor/tempDecomp'
@@ -358,5 +358,7 @@ def main():
     #Apaga a pasta tempDecomp
     shutil.rmtree('./tempDecomp')
 
+    #OBS
+    #Upei ate a data de DC202105-sem3
 if __name__ == "__main__":
     main()

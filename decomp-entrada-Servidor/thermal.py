@@ -5,11 +5,11 @@ def parseThermalData(content):
     filename = 'thermal.csv'
     header = [
         'thermalId', 'subsystem', 'name', 'stageIndex',
-        'minGenPat1', 'genCapPat1', 'costGenPat1',
-        'minGenPat2', 'genCapPat2', 'costGenPat2',
-        'minGenPat3', 'genCapPat3', 'costGenPat3',
-        'minGenPat4', 'genCapPat4', 'costGenPat4',
-        'minGenPat5', 'genCapPat5', 'costGenPat5'
+        'inflexGenPat1', 'genCapPat1', 'costGenPat1',
+        'inflexGenPat2', 'genCapPat2', 'costGenPat2',
+        'inflexGenPat3', 'genCapPat3', 'costGenPat3',
+        'inflexGenPat4', 'genCapPat4', 'costGenPat4',
+        'inflexGenPat5', 'genCapPat5', 'costGenPat5'
     ]
     result = []
     lines = content.splitlines()[1:]

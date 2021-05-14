@@ -15,8 +15,8 @@ def parseFloodVolume(content):
     for line in lines:
         if '&' in line or line.strip() == '':
             continue
-        if 'VE' in line:
-
+        if 'VE' in line[:3]:
+            
             patInfo = []
             stageId = 0
             lastInfo = 0
