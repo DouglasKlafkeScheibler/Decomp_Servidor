@@ -7,7 +7,7 @@ import os
 import shutil
 
 # Exemple:DC202001
-archive_name = 'DC202105'
+archive_name = 'DC202106'
 # archive_name = 'DC' + datetime.now().strftime("%Y%m")
 
 def download_decomp():

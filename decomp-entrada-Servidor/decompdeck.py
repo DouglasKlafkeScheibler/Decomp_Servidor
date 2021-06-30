@@ -344,7 +344,7 @@ def upload_data_deckIn(pathdeck = '../decomp-entrada-Servidor/tempDecomp'):
 #Main da aplicação, onde irá rodar as funções
 def main():
     #Baixa os arquivos de decomp do mes atual do sistema e salva na pasta temporaria tempDecomp
-    # download_decomp()
+    download_decomp()
  
     #Indica onde está os arquivos baixados do mes
     pathdeck = '../decomp-entrada-Servidor/tempDecomp'
@@ -359,6 +359,6 @@ def main():
     shutil.rmtree('./tempDecomp')
 
     #OBS
-    #Upei ate a data de DC202105-sem3
+    #Upei ate a data de DC202106-sem3
 if __name__ == "__main__":
     main()
